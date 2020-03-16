@@ -282,9 +282,9 @@ $('.centerMapHolder').load('./mall/'+mall+'.html');
                         text+='To go to ';
                         text+=result.next_dst?result.next_dst:result.destination;
                         
-                       text+=' On '+result.next_floor_name+' Floor';
+                       text+=' On '+result.destination_floor_name+' Floor';
                        text+=' Take '+result.next_src;
-                       text+=' From '+result.source_floor_name;
+                       text+=' From '+result.source_floor_name+' Floor';
 
 
      
