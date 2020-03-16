@@ -11,7 +11,7 @@ $('.centerMapHolder').load('./mall/'+mall+'.html');
 
  //$( function() {
          $.ajax({
-            url: 'http://localhost:3002/entities/'+mall,
+            url: 'http://localhost:3004/entities/'+mall,
             type: "GET",
             dataType: "json",
             success: function(result) {
@@ -201,7 +201,7 @@ $('.centerMapHolder').load('./mall/'+mall+'.html');
 
     function bindMap(currentlyAt, destination,floor) {
     	//alert("hello");
-    	let url='http://localhost:3002/route/'+mall+'/' + currentlyAt + '/' + destination+'/';
+    	let url='http://localhost:3004/route/'+mall+'/' + currentlyAt + '/' + destination+'/';
     	if(floor){
     		url+='?floor='+floor
     	}
