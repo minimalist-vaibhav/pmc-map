@@ -1,0 +1,165 @@
+*{margin:0;padding:0;border:0;box-sizing:border-box;font-weight: 400;font-family: 'Poppins', sans-serif; outline:none;-webkit-appearance:none;-moz-appearance:none;appearance:none;-webkit-text-size-adjust:none;-moz-text-size-adjust:none;text-size-adjust:none;}
+::-moz-selection{background:#0287C0;color:#fff;}
+::selection{background:#0287C0;color:#fff;}
+ul, ol, li, h1, h2, h3, h4, h5, h6, a, p{text-decoration:none;list-style:none;font-weight:100;}
+a{-webkit-transition:all 0.5s;-moz-transition:all 0.5s;-o-transition:all 0.5s;transition:all 0.5s;cursor:pointer;color:#000;}
+input[type="submit"]{backface-visibility:hidden;-webkit-appearance:none;-moz-appearance:none;cursor:pointer;}
+textarea, input, select{border-radius:0;resize:none;box-sizing:border-box;font-family: 'Poppins', sans-serif;}
+table,tr,td,th{border-spacing:0;padding:0;margin:0;vertical-align:top;}
+img{max-width:100%;}
+
+
+.mapSection{position: relative;}
+.mapHolder{position: relative;padding: 0px 50px; display: flex;}
+.leftSide h3{font-weight: 600;font-size: 30px;font-family: 'Crimson Text', serif;}
+
+.wayfinderBox{position: relative;padding-top: 20px;}
+.wayfinderBoxTab label{text-transform: uppercase;font-weight:500;font-size: 13px;top:25px; position: absolute;left: 0;line-height: 30px;transition: all 0.5s;}
+.active_field.wayfinderBoxTab label{top:0;} 
+.wayfinderBoxTab{position: relative;padding:25px 0;}
+.wayfinderBoxTab input{width: 100%; background-color:transparent;border-bottom: 1px solid #000;line-height:40px;font-size: 20px;font-weight: 600;position: relative;z-index: 1;}
+.wayfinderBoxTab button{border:1px solid #000;border-radius: 4px;transition: 0.3s all;cursor: pointer; background-color: transparent;font-size: 16px;font-weight:500; text-transform: uppercase;display:block;line-height: 45px;width: 100%;}
+.wayfinderBoxTab button:hover{background-color: #000;color: #fff;}
+.leftSide{position: relative;width: 250px;padding-top: 80px;}
+.centerMapHolder{position: relative;width: calc(100% - 400px);}
+.rightSideTab{position: relative;width: 50px;text-align:right;padding-top: 50px;}
+
+.rightSideTab li{padding:10px 0;text-align: right;}
+.rightSideTab li h4.gFloorStyle{border-radius: 50px; width:120px;}
+.rightSideTab li h4{background-color: #fff; border: 1px solid #888;color: #888;cursor: pointer; display: inline-block; border-radius: 50%; line-height: 50px; width: 50px; height: 50px;font-size: 14px; text-align: center; font-weight:400;}
+.floor_data{display: none;}
+.active_floor_tab h4{border: 1px solid #000 !important;color: #000 !important;}
+
+.active_map_first{display: block;}
+.mapTabHolder{position: relative;padding: 20px;}
+.mapTabHolderInner{position: relative;display: block;}
+.directionHolder{position: relative;display:none;}
+.directionHolderInner{position: relative;border-bottom:1px solid #888;max-height: 300px;overflow: auto;}
+.directionHolderInner li{padding: 10px;border-top:1px solid #888;}
+.directionHolderInner h4{font-size: 14px;font-weight:400;display: inline-block;padding-left: 5px;}
+
+.directionIcon{position: relative;width: 50px;display: inline-block;vertical-align: middle;border:1px solid #000;border-radius: 50%;position: relative;height: 50px;}
+.directionIcon img{width: 25px; position: absolute; top: 0; height: 25px; margin: auto; text-align: center; bottom: 0; right: 0; left: 0;}
+
+.directionHolderInner::-webkit-scrollbar {
+    width: 8px;
+    background:#ddd;
+}
+
+.directionHolderInner::-webkit-scrollbar-thumb {
+    border-radius: 15px;
+    -webkit-box-shadow: inset 0 0 6px #888; 
+    background:#888;
+}
+
+#groundPath {
+ fill-opacity: 0;
+ stroke: #f00;
+ stroke-width: 5;
+ stroke-dasharray: 870;
+ /*stroke-dashoffset: 870;*/
+ animation-name: draw;
+ animation-duration: 4s;
+ animation-iteration-count: 1;
+ animation-timing-function: linear;
+}
+
+#firstPath {
+  fill-opacity: 0;
+  stroke: #f00;
+  stroke-width: 5;
+  stroke-dasharray: 870;
+  /*stroke-dashoffset: 870;*/
+  animation-name: draw1;
+  animation-duration: 4s;
+  animation-iteration-count: 1;
+  animation-timing-function: linear;
+ }
+
+@keyframes draw {
+ to {
+   stroke-dashoffset:0;
+ }
+ from {
+   stroke-dashoffset: 870;
+ }
+}
+
+@keyframes draw1 {
+  to {
+    stroke-dashoffset: 0;
+  }
+  from {
+   stroke-dashoffset: 870;
+ }
+ }
+ .selectedPlace{
+  fill: #de1b17 !important;
+   stroke:#de1b17;
+   stroke-width: 2px;
+ }
+
+  .selectedPlace > g  > polygon{
+  fill: #de1b17 !important;
+   stroke:#de1b17;
+   stroke-width: 2px;
+ }
+
+.changeFloor{position: relative;font-weight: 600;}
+.changeFloor:after{content: '';position: absolute;background-image: url('../images/clickHere.png'); background-size: 14px;height: 30px;width:50px;right: 0;top:0;bottom: 0;margin:auto;}
+
+
+.escalatorLocation {
+  width: 10px;
+  height: 20px;
+  border-radius: 50%;
+  fill: #de1b17;
+  animation: bounce 0.5s;
+  animation-direction: alternate;
+  animation-iteration-count: infinite;
+  cursor: pointer;
+}
+.zoomStyle{
+  display: none;
+  background-color: #fff;
+  border:1px solid #ddd;border-radius: 50px;width: 35px;margin-top: 10px;
+}
+.zoomStyle li h4{cursor: pointer;
+    display: inline-block;
+    width: 35px;
+    height: 40px;
+    line-height: 40px;
+    font-size: 14px;
+    color:#000;
+    text-align: center;
+    font-weight: 800;}
+
+.disabled{cursor: none;opacity: 0.5;pointer-events: none;}
+
+
+@keyframes bounce {
+  from { transform: translate3d(0, 0, 0);     }
+  to   { transform: translate3d(0, 5px, 0); }
+}
+
+
+@media (max-width: 1000px) {
+  .mapTabHolder svg{transform-origin:0 0;transform: scale(1.5);}
+  .zoomStyle{display: block;}
+  .mapHolder{display: block;}
+  .leftSide{position:relative;width:100%;}
+  .centerMapHolder{width: 100%;overflow: auto;}
+  .rightSideTab{position: absolute;bottom:120px;right:50px;}
+  .zoomStyle{position: absolute;bottom: 0;right: 50px;}
+}
+
+@media (max-width: 768px) {
+
+.mapHolder{padding: 0 15px;}
+.leftSide{position:relative;padding-top: 20px;}
+.centerMapHolder{width: 100%;}
+.rightSideTab{right:15px;padding-top: 0;}
+.rightSideTab li h4{height: 35px;width: 35px;line-height: 35px;font-size: 12px;}
+.rightSideTab li{padding: 5px 0;}
+.zoomStyle{right:15px;}
+}
