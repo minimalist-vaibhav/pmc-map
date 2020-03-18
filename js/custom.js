@@ -1,3 +1,45 @@
+function svgZoomPan(id){
+                var instance = new SVGPanZoom(document.getElementById(id), {
+                eventMagnet: document.getElementById('SVGContainer'),
+                zoom: {
+   // factor: 0.25,
+      minZoom: 1,
+      maxZoom: 3,
+      events: {
+          mouseWheel:true,
+          doubleClick:true,
+          pinch:true
+      },
+
+      callback:function callback(multiplier) {
+        console.log(multiplier);
+        zoom=multiplier
+        // if(multiplier<=1.25){
+        //         instance.reset();
+
+        // }
+      }
+    }
+
+            });
+
+            document.getElementById('zoomin').addEventListener('click', function () {
+                instance.zoomIn(null, 0.5);
+            });
+            document.getElementById('zoomout').addEventListener('click', function () {
+                if(zoom > 1.25){
+                instance.zoomOut(null, 0.5);
+            var zoom=1
+            }else{
+                instance.reset();
+
+            }
+            });
+            document.getElementById('resetSVG').addEventListener('click', function () {
+                instance.reset();
+            });
+}
+
 $(document).ready(function() {
 
     $.urlParam = function(name){
@@ -7,7 +49,11 @@ $(document).ready(function() {
 var mall=null;
 if($.urlParam('mall')){
  mall=$.urlParam('mall');
-$('.centerMapHolder').load('./mall/'+mall+'.html');
+            var zoom=1
+
+$('.centerMapHolder').load('./mall/'+mall+'.html',function(){
+svgZoomPan("groundFloor");
+});
 
  //$( function() {
          $.ajax({
@@ -96,6 +142,8 @@ $('.centerMapHolder').load('./mall/'+mall+'.html');
         $(this).addClass('active_floor_tab');
         $('.floor_data').css('display', 'none');
         $('.' + mapFloor).fadeIn();
+svgZoomPan(mapFloor+"Floor");
+
     });
     var places = [{
             src: "renault",
@@ -224,6 +272,8 @@ $('.centerMapHolder').load('./mall/'+mall+'.html');
                     $("#" + srcFloor).addClass('active_floor_tab');
                     $('.floor_data').css('display', 'none');
                     $('.' + srcFloor).fadeIn();
+svgZoomPan(srcFloor+"Floor");
+                    
                     setTimeout(function() {
                         //	alert(srcFloor+"Src");
                         $("#" + srcFloor + "Path").attr("d", path);

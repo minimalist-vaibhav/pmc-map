@@ -19,6 +19,8 @@
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="js/custom.js"></script>
+    <script src="js/SVGPanZoom.js"></script>
+
       <script>
      
       </script>
@@ -26,7 +28,7 @@
 <body>
     <header>
         <img src="images/header.jpg">
-	</header>
+    </header>
 
     <section class="mapSection">
         <div class="mapHolder">
@@ -53,9 +55,38 @@
                     </div>
                 </div>
             </div>
-            <div class="centerMapHolder">
+            <div class="centerMapHolder" id="SVGContainer">
              
             </div>
+            <div id="controls">
+                            <svg version="1.1">
+                                <g transform="translate(10,10)">
+                                    <g transform="translate(0,47)">
+                                        <g cursor="pointer" id="zoomin">
+                                            <circle r="15.5" cx="0" cy="0" fill="#FFFFFF" stroke="#000000" fill-opacity="0.7" stroke-width="1" stroke-opacity="0.1"
+                                                transform="translate(16,16)"></circle>
+                                            <g transform="translate(16,16)" opacity="1" style="pointer-events: none;">
+                                                <path cs="100,100" d="M-6.5,0.5 L7.5,0.5" fill="none" stroke-width="1" stroke-opacity="1" stroke="#494949"></path>
+                                                <path cs="100,100" d="M0.5,-6.5 L0.5,7.5" fill="none" stroke-width="1" stroke-opacity="1" stroke="#494949"></path>
+                                            </g>
+                                        </g>
+                                        <g cursor="pointer" id="zoomout" transform="translate(0,36)">
+                                            <circle r="15.5" cx="0" cy="0" fill="#FFFFFF" stroke="#000000" fill-opacity="0.7" stroke-width="1" stroke-opacity="0.1"
+                                                transform="translate(16,16)"></circle>
+                                            <path cs="100,100" d="M-6.5,0.5 L7.5,0.5" fill="none" stroke-width="1" stroke-opacity="1" stroke="#494949"
+                                                transform="translate(16,16)" opacity="1" style="pointer-events: none;"></path>
+                                        </g>
+                                    </g>
+                                    <g cursor="pointer" id="resetSVG">
+                                        <circle r="15.5" cx="0" cy="0" fill="#FFFFFF" stroke="#000000" fill-opacity="0.7" stroke-width="1" stroke-opacity="0.1"
+                                            transform="translate(16,16)"></circle>
+                                        <path cs="100,100" d="M-6.5,0.5 L0.5,-6.5 L7.5,0.5 L6.5,0.5 L6.5,6.5 L2.5,6.5 L2.5,2.5 L-1.5,2.5 L-1.5,6.5 L-5.5,6.5 L-5.5,0.5 Z"
+                                            fill="#494949" stroke="#494949" fill-opacity="1" stroke-width="1" stroke-opacity="1" transform="translate(16,16)"
+                                            opacity="1" style="pointer-events: none;"></path>
+                                    </g>
+                                </g>
+                            </svg>
+                        </div>
             <div class="rightSideTab">
                 <ul>
                      <li id="lower-ground"><h4 >LG</h4></li>
@@ -65,17 +96,17 @@
                 </ul>
             </div>
 
-            <div class="zoomStyle">
+            <!-- <div class="zoomStyle">
                 <ul>
                     <li id="big" ><h4>+</h4></li>
                     <li id="small"><h4>-</h4></li>
                 </ul>
-            </div>
+            </div> -->
         </div>
     </section>
     <!-- <script src="js/jquery-3.3.1.min.js"></script> -->
     <script type="text/javascript">
-       
+           
     </script>
 
 </body>
