@@ -157,11 +157,10 @@ img{max-width:100%;}
   .centerMapHolder{width: 100%;overflow: auto;}
   .rightSideTab{padding-top: 0;}
   .zoomStyle{position: absolute;bottom: 0;right: 50px;}
-  #controls{left: 10px;right: inherit;}
+  #controls{left:0px;right: inherit;padding-top: 10px;}
   .mapHolder{flex-wrap: wrap;}
   .leftSide{position:relative;width:100%;flex:1 1 100%;}
   .mapDataWrapper{flex: 0 0 calc(100% - 50px);}
-  #controls{padding-top: 10px;}
 }
 
 @media (max-width: 768px) {
