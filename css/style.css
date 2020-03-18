@@ -20,9 +20,13 @@ img{max-width:100%;}
 .wayfinderBoxTab input{width: 100%; background-color:transparent;border-bottom: 1px solid #000;line-height:40px;font-size: 20px;font-weight: 600;position: relative;z-index: 1;}
 .wayfinderBoxTab button{border:1px solid #000;border-radius: 4px;transition: 0.3s all;cursor: pointer; background-color: transparent;font-size: 16px;font-weight:500; text-transform: uppercase;display:block;line-height: 45px;width: 100%;}
 .wayfinderBoxTab button:hover{background-color: #000;color: #fff;}
-.leftSide{position: relative;width: 250px;padding-top: 80px;}
-.centerMapHolder{position: relative;width: calc(100% - 400px);}
-.rightSideTab{position: relative;width: 50px;text-align:right;padding-top: 50px;}
+
+
+.leftSide{position: relative;flex:0 0 250px; padding-top: 80px;}
+.mapDataWrapper{position: relative;flex:0 0 calc(100% - 300px);}
+.rightSideTab{position: relative;flex:0 0 50px;text-align:right;padding-top: 50px;}
+#controls{position:absolute;width: 50px;top:0;right:30px; overflow: hidden;padding-top: 60px;}
+
 
 .rightSideTab li{padding:10px 0;text-align: right;}
 .rightSideTab li h4.gFloorStyle{border-radius: 50px; width:120px;}
@@ -143,23 +147,31 @@ img{max-width:100%;}
 }
 
 
+
+
 @media (max-width: 1000px) {
-  .mapTabHolder svg{transform-origin:0 0;transform: scale(1.5);}
+  /*.mapTabHolder svg{transform-origin:0 0;transform: scale(1.5);}*/
   .zoomStyle{display: block;}
-  .mapHolder{display: block;}
-  .leftSide{position:relative;width:100%;}
+  
+  
   .centerMapHolder{width: 100%;overflow: auto;}
-  .rightSideTab{position: absolute;bottom:120px;right:50px;}
+  .rightSideTab{padding-top: 0;}
   .zoomStyle{position: absolute;bottom: 0;right: 50px;}
+  #controls{left: 10px;right: inherit;}
+  .mapHolder{flex-wrap: wrap;}
+  .leftSide{position:relative;width:100%;flex:1 1 100%;}
+  .mapDataWrapper{flex: 0 0 calc(100% - 50px);}
+  #controls{padding-top: 10px;}
 }
 
 @media (max-width: 768px) {
 
-.mapHolder{padding: 0 15px;}
+.forMobile{position: relative;}
+.mapHolder{padding: 0 15px;padding-bottom: 20px;}
 .leftSide{position:relative;padding-top: 20px;}
 .centerMapHolder{width: 100%;}
-.rightSideTab{right:15px;padding-top: 0;}
 .rightSideTab li h4{height: 35px;width: 35px;line-height: 35px;font-size: 12px;}
 .rightSideTab li{padding: 5px 0;}
 .zoomStyle{right:15px;}
+.mapTabHolder{padding: 0;}
 }
