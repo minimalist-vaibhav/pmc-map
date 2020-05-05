@@ -53,7 +53,7 @@ $(document).ready(function() {
 
         //$( function() {
         $.ajax({
-            url: 'http://localhost:3004/entities/' + mall,
+            url: 'http://13.126.93.141:3002/entities/' + mall,
             type: "GET",
             dataType: "json",
             success: function(data) {
@@ -181,7 +181,7 @@ $(document).ready(function() {
 
     function bindMap(currentlyAt, destination, floor) {
         //alert("hello");
-        let url = 'http://localhost:3004/route/' + mall + '/' + currentlyAt + '/' + destination + '/';
+        let url = 'http://13.126.93.141:3002/route/' + mall + '/' + currentlyAt + '/' + destination + '/';
         if (floor) {
             url += '?floor=' + floor
         }
